@@ -6,7 +6,7 @@ RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure --frontend noninter
 
 RUN rm -rf /var/www/html/* && rm -f /etc/apache2/sites-available/000-default.conf 
 ADD ./settings/000-default.conf /etc/apache2/sites-available/
-# ADD src /var/www/html/
+ADD src /var/www/html/
 COPY run.sh /run.sh 
 RUN a2enmod rewrite && chown -Rf www-data:www-data /var/www/html/ && chmod a+rx /run.sh
 RUN rm -rf /var/lib/apt/lists/*  apt-get autoclean &&  apt-get clean
