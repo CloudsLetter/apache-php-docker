@@ -33,4 +33,4 @@ jobs:
           docker run --rm --privileged tonistiigi/binfmt:latest --install all
           docker buildx create --use --name imgbuilder
           docker buildx inspect imgbuilder --bootstrap
-          docker buildx build  --platform inux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 -t ${{ secrets.REGISTRY_LABEL }}/${{ secrets.REGISTRY_IMAGE }} . --push 
+          docker buildx build  --platform linux/amd64,linux/arm64,linux/arm/v7 -t ${{ secrets.REGISTRY_LABEL }}/${{ secrets.REGISTRY_IMAGE }} . --push 
